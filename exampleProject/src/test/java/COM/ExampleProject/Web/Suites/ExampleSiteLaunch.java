@@ -5,6 +5,7 @@ import com.runner.annotations.TestInformation;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 
@@ -47,35 +48,37 @@ public class ExampleSiteLaunch {
         try {
 
             ExampleProjectWebRunner.driver.get("https://google.com");
+            System.out.println("Website load success");
 
-        } catch (Exception E) {
-            Assert.fail("Unable to load google" + E);
+        } catch (Exception e) {
+            Assert.fail("Unable to load google" + e);
 
         }
         try {
 
             ExampleProjectWebRunner.driver.findElementByCssSelector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input").click();
             WebElement element = ExampleProjectWebRunner.driver.findElement(By.cssSelector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input"));
-            element.sendKeys("Connor is the automation guy - Kidding");
-            ExampleProjectWebRunner.driver.findElementByCssSelector("#tsf > div:nth-child(2) > div > div.FPdoLc.VlcLAe > center > input.gNO89b").click();
+            element.sendKeys("Selenium automation webtest");
+            element.sendKeys(Keys.ENTER);
+            System.out.println("Text entered");
 
         } catch (Exception e) {
-            Assert.fail("Unable to enter the required text" + e);
+            Assert.fail("Unable to search the required text" + e);
 
         }
 
         try {
-            ExampleProjectWebRunner.driver.findElementByPartialLinkText("'Haha, Just Kidding ... Unless?").click();
-
+            ExampleProjectWebRunner.driver.findElementByCssSelector("#rso > div:nth-child(1) > div > div > div.rc > div.r > a > h3 > div").click();
+            System.out.println("Clicked on the Selenium homepage");
         } catch (Exception e) {
             Assert.fail("Unable to find the requested page" + e);
         }
 
         try {
-            ExampleProjectWebRunner.driver.findElementByCssSelector("#mega-menu-item-485868 > a > img");
-
+            ExampleProjectWebRunner.driver.findElementByCssSelector("#menu_projects > a").click();
+            System.out.println("Navigated to projects");
         } catch (Exception e) {
-            Assert.fail("Unable to find the requested element" + e);
+            Assert.fail("Unable to continue to projects" + e);
         }
     }
 }

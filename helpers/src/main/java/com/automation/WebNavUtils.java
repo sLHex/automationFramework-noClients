@@ -1,6 +1,4 @@
 package com.automation;
-
-import cucumber.api.Scenario;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,7 +21,6 @@ public class WebNavUtils {
     static WebDriver driver;
     //static Map<String, Object> chromeOptions = new HashMap<String, Object>();
     static ChromeOptions chromeOptions = new ChromeOptions();
-    static Scenario currentScenario;
     static SoftAssert softassert = new SoftAssert();
 
 
@@ -41,20 +38,20 @@ public class WebNavUtils {
 
 
 
-    public static void softAssertTrueWithMessage(boolean condition, String message) {
-
-
-        appendMessageToScenario(message);
-        softassert.assertTrue(condition, message);
-        //softassert.assertAll();
-        //softassert.
-    }
-
-    public static void appendMessageToScenario(String message) {
-        if (currentScenario != null) {
-            currentScenario.write(message);
-        }
-    }
+//    public static void softAssertTrueWithMessage(boolean condition, String message) {
+//
+//
+//        appendMessageToScenario(message);
+//        softassert.assertTrue(condition, message);
+//        //softassert.assertAll();
+//        //softassert.
+//    }
+//
+//    public static void appendMessageToScenario(String message) {
+//        if (currentScenario != null) {
+//            currentScenario.write(message);
+//        }
+//    }
 //
 //    @Given("^I go to the website \"([^\"]*)\"$")
 //    public void iGoToTheWebsite(String websiteName) {
@@ -63,7 +60,8 @@ public class WebNavUtils {
 //
 //    @Then("^I expect the website title to be \"([^\"]*)\"$")
 //    public void iExpectTheWebsiteTitleToBe(String websiteTitle) {
-//        String currentTitle = driver.getTitle();
+//
+//    String currentTitle = driver.getTitle();
 //        String expectedTitle = websiteTitle;
 //        Assert.assertTrue(currentTitle.equals(expectedTitle));
 //

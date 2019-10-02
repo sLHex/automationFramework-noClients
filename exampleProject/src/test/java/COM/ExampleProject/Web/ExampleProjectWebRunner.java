@@ -9,6 +9,7 @@ import org.junit.runners.Suite;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 
 @RunWith(EnhancedSuite.class)
@@ -49,7 +50,7 @@ public class ExampleProjectWebRunner implements EnhancedTestInterface {
      */
 
 
-    public static String rootLocation = "/Users/admim/Downloads/chromedriver";
+    public static String rootLocation = "src/main/Resources/chromedriver";
     public static ChromeDriver driver;
 
     /**
@@ -131,6 +132,7 @@ public class ExampleProjectWebRunner implements EnhancedTestInterface {
 
             System.setProperty("webdriver.chrome.driver", rootLocation);
             driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             /**
              * We use a conditional statement here to determine if the driver needs to be created.
